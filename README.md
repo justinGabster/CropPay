@@ -30,7 +30,8 @@ CropPay issues cooperative tokens instantly on Stellar via Soroban, redeemable f
 ## Build
 ```bash
 soroban contract build
-
+```
+ 
 ## Setup
 
 1. **Clone the repository**
