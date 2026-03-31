@@ -1,6 +1,13 @@
 # CropPay
 Instant cooperative tokenization for rice farmers in the Philippines.
 
+## Smart Contract Address
+CDP54N72GGWVBR6ETK5L3GITKKPA6CR57UV3CHU43DT6UWCLBUS23IKG
+
+## Stellar Expert Link
+https://stellar.expert/explorer/testnet/contract/CDP54N72GGWVBR6ETK5L3GITKKPA6CR57UV3CHU43DT6UWCLBUS23IKG
+<img width="1912" height="908" alt="A Jose_Deployed Contract" src="https://github.com/user-attachments/assets/cfc08667-ab2e-435a-a254-3d99bf92916a" />
+
 ## Problem
 Rice farmers in Nueva Ecija wait 3–5 days for cash disbursement after delivering crops, missing input discounts.
 
