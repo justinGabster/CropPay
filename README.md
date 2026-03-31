@@ -31,10 +31,6 @@ CropPay issues cooperative tokens instantly on Stellar via Soroban, redeemable f
 ```bash
 soroban contract build
 
-Here you go:
-
----
-
 ## Setup
 
 1. **Clone the repository**
@@ -55,8 +51,6 @@ Here you go:
    soroban config identity generate alice
    soroban config identity fund alice --network testnet
    ```
-
----
 
 ## Usage
 
@@ -92,8 +86,6 @@ soroban contract invoke \
   --amount 50
 ```
 
----
-
 ## How It Works
 
 The Soroban contract exposes three functions:
@@ -113,7 +105,3 @@ Farmer swaps token for USDC via Stellar DEX
         ↓
 Farmer redeems USDC at local anchor (cash out)
 ```
-
----
-
-Just copy-paste each block wherever you want them in your existing README!
