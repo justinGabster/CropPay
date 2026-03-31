@@ -30,3 +30,90 @@ CropPay issues cooperative tokens instantly on Stellar via Soroban, redeemable f
 ## Build
 ```bash
 soroban contract build
+
+Here you go:
+
+---
+
+## Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/croppay.git
+   cd croppay
+   ```
+
+2. **Configure Soroban CLI for Testnet**
+   ```bash
+   soroban config network add testnet \
+     --rpc-url https://soroban-testnet.stellar.org \
+     --network-passphrase "Test SDF Network ; September 2015"
+   ```
+
+3. **Create or import a funded Testnet identity**
+   ```bash
+   soroban config identity generate alice
+   soroban config identity fund alice --network testnet
+   ```
+
+---
+
+## Usage
+
+### Record a Delivery
+```bash
+soroban contract invoke \
+  --id CDP54N72GGWVBR6ETK5L3GITKKPA6CR57UV3CHU43DT6UWCLBUS23IKG \
+  --network testnet \
+  --source alice \
+  -- record_delivery \
+  --farmer <FARMER_STELLAR_ADDRESS> \
+  --amount 100
+```
+
+### Check Balance
+```bash
+soroban contract invoke \
+  --id CDP54N72GGWVBR6ETK5L3GITKKPA6CR57UV3CHU43DT6UWCLBUS23IKG \
+  --network testnet \
+  --source alice \
+  -- balance \
+  --farmer <FARMER_STELLAR_ADDRESS>
+```
+
+### Redeem Tokens
+```bash
+soroban contract invoke \
+  --id CDP54N72GGWVBR6ETK5L3GITKKPA6CR57UV3CHU43DT6UWCLBUS23IKG \
+  --network testnet \
+  --source alice \
+  -- redeem \
+  --farmer <FARMER_STELLAR_ADDRESS> \
+  --amount 50
+```
+
+---
+
+## How It Works
+
+The Soroban contract exposes three functions:
+
+**`record_delivery(farmer, amount)`** — Called when a farmer delivers rice. Mints cooperative tokens by incrementing the farmer's on-chain balance.
+
+**`redeem(farmer, amount)`** — Called by the farmer to burn tokens. Deducts the balance and emits a `redeem` event that triggers a USDC payout.
+
+**`balance(farmer)`** — Read-only query that returns the farmer's current cooperative token balance.
+
+```
+Farmer records delivery
+        ↓
+Soroban contract mints cooperative token
+        ↓
+Farmer swaps token for USDC via Stellar DEX
+        ↓
+Farmer redeems USDC at local anchor (cash out)
+```
+
+---
+
+Just copy-paste each block wherever you want them in your existing README!
